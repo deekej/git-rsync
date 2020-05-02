@@ -10,7 +10,7 @@ fi
 source .scripts/config
 
 # Make a cleanup before re-syncing the necessary files:
-rm -rf "$(grep -E -v '^#.*' "${FOLDERS_TO_CLEAN}")"
+rm -rf "$(grep -E -v '^#.*' "${FILES_CLEAN}")"
 
 # Sync the specified files into this repository:
 rsync ${RSYNC_OPTIONS} \
@@ -32,7 +32,7 @@ git add --force "${FILES_META}"
 # Restore ownership of files/folders for easier management via git:
 chown -R "${USER}:${USER}" ./*
 chown -R "${USER}:${USER}" .git/
-chown -R "${USER}:${USER}" "${FILES_SYNC}" "${FILES_META}" "${FOLDERS_TO_CLEAN}"
+chown -R "${USER}:${USER}" "${FILES_SYNC}" "${FILES_META}" "${FILES_CLEAN}"
 
 # Make sure all the folders in this repository have '0755' permissions so they
 # can be correctly read and traversed...

@@ -10,7 +10,7 @@ USER='deekej'
 # We expect the scripts to be called from repository top-dir:
 FILES_SYNC="${PWD}/.files-to-sync"
 FILES_META="${PWD}/.files-metadata"
-FOLDERS_TO_CLEAN="${PWD}/.folders-to-clean"
+FILES_CLEAN="${PWD}/.files-to-clean"
 
 # Default rsync options for backup creation - change them as needed:
 RSYNC_OPTIONS="--quiet \

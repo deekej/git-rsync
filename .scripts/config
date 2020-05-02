@@ -28,6 +28,10 @@ RSYNC_OPTIONS="--quiet \
                --devices \
                --specials"
 
+# Default destination where the backup should be placed. Overriding this value
+# might help with stripping parts of the path:
+RSYNC_DEST="./."
+
 # Default 'git-store-meta' options for metadata backup - change them as needed:
 META_OPTIONS="--directory \
               --fields mode,user,group,uid,gid,acl"

@@ -26,6 +26,9 @@ $store_metadata ${META_OPTIONS} \
                 --store \
                 --target "${FILES_META}"
 
+# Also update the newly created metadata file:
+git add --force "${FILES_META}"
+
 # Restore ownership of files/folders for easier management via git:
 chown -R "${USER}:${USER}" ./*
 chown -R "${USER}:${USER}" .git/

@@ -1,0 +1,9 @@
+# vim: filetype=bash
+
+# This file contains all the items you wish to sync into the git repository:
+#  * folders [paths ending with '/']
+#  * files [other paths not ending with '/']
+#
+# Every line starting with '#' (comment) is ignored. Example:
+# /etc/default/     -- folder to be backed up [recursively by default]
+# /etc/os-release   -- single file to be backed up

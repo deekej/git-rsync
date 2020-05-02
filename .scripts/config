@@ -1,0 +1,33 @@
+# vim: filetype=bash
+
+# Points to a auxiliary script for storing metadata - either
+# as a git submodule [default], or a system-wide installation:
+store_metadata="${PWD}/.scripts/metadata/git-store-meta.pl"
+
+# Default (current) user to use for commiting changes:
+USER='deekej'
+
+# We expect the scripts to be called from repository top-dir:
+FILES_SYNC="${PWD}/.files-to-sync"
+FILES_META="${PWD}/.files-metadata"
+FOLDERS_TO_CLEAN="${PWD}/.folders-to-clean"
+
+# Default rsync options for backup creation - change them as needed:
+RSYNC_OPTIONS="--quiet \
+               --checksum \
+               --whole-file \
+               --recursive \
+               --links \
+               --hard-links \
+               --keep-dirlinks \
+               --owner \
+               --group \
+               --times \
+               --perms \
+               --acls \
+               --devices \
+               --specials"
+
+# Default 'git-store-meta' options for metadata backup - change them as needed:
+META_OPTIONS="--directory \
+              --fields mode,user,group,uid,gid,acl"

@@ -19,7 +19,7 @@ rsync ${RSYNC_OPTIONS} \
       / "${RSYNC_DEST}"               # Source : Destination
 
 # Update the git tracked files of this repository:
-git add --all --force .
+git add --all .
 
 # Make a metadata backup of files that are in current git repository:
 $store_metadata ${META_OPTIONS} \

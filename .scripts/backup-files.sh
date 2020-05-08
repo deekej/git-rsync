@@ -10,7 +10,7 @@ fi
 source .scripts/config
 
 # Make a cleanup before re-syncing the necessary files:
-rm -rf "$(grep -E -v '^#.*' "${FILES_CLEAN}")"
+rm -rf $(grep -E -v '^#.*' "${FILES_CLEAN}")
 
 # Sync the specified files into this repository:
 rsync ${RSYNC_OPTIONS} \

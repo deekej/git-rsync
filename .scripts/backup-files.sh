@@ -30,10 +30,10 @@ $store_metadata ${META_OPTIONS} \
 git add --force "${FILES_META}"
 
 # Restore ownership of files/folders for easier management via git:
-chown -R "${USER}:${USER}" ./*
-chown -R "${USER}:${USER}" .git/
-chown -R "${USER}:${USER}" "${RSYNC_DEST}"
-chown -R "${USER}:${USER}" "${FILES_SYNC}" "${FILES_META}" "${FILES_CLEAN}"
+chown -R "${USERNAME}:${USERNAME}" ./*
+chown -R "${USERNAME}:${USERNAME}" .git/
+chown -R "${USERNAME}:${USERNAME}" "${RSYNC_DEST}"
+chown -R "${USERNAME}:${USERNAME}" "${FILES_SYNC}" "${FILES_META}" "${FILES_CLEAN}"
 
 # Make sure all the folders in this repository have '0755' permissions so they
 # can be correctly read and traversed...

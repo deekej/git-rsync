@@ -4,8 +4,9 @@
 # as a git submodule [default], or a system-wide installation:
 store_metadata="${PWD}/.scripts/metadata/git-store-meta.pl"
 
-# Default (current) user to use for commiting changes:
-USER='deekej'
+# System-wide $USERNAME is used for commiting changes.
+# If you wish to use different username, uncomment & change the line below:
+#USERNAME='deekej'
 
 # We expect the scripts to be called from repository top-dir:
 FILES_SYNC="${PWD}/.files-to-sync"

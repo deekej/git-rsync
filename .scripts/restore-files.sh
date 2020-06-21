@@ -35,7 +35,11 @@ function sysf_restore()
     echo "${PROG}: INFO: Restoring SELinux context of all restored files to default"
     echo "${PROG}:       ... This may take a while. Do NOT interrupt!"
 
-    restorecon -p -i -W -R -f "${FILES_SYNC}"
+    grep -q -v -e '^#.*' "${FILES_SYNC}" > .restorecon.files
+
+    restorecon -p -i -R -f .restorecon.files
+
+    rm -f .restorecon.files
   fi
 }
 
@@ -73,3 +77,14 @@ rsync ${RSYNC_OPTIONS} \
       "${PWD}" /                      # Source : Destination
 
 sysf_restore                          # Restore system files & SELinux context.
+
+# Restore ownership of files/folders for easier management via git:
+chown -R "${USERNAME}:${USERNAME}" ./*
+chown -R "${USERNAME}:${USERNAME}" .git/
+chown -R "${USERNAME}:${USERNAME}" "${RSYNC_DEST}"
+chown -R "${USERNAME}:${USERNAME}" "${FILES_SYNC}" "${FILES_META}" "${FILES_CLEAN}"
+
+# Make sure all the folders in this repository have '0755' permissions so they
+# can be correctly read and traversed...
+
+find ${PWD} -type d -not -perm 0755 -exec chmod 0755 {} +

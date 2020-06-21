@@ -22,9 +22,9 @@ rsync ${RSYNC_OPTIONS} \
 git add --all .
 
 # Make a metadata backup of files that are in current git repository:
-$store_metadata ${META_OPTIONS} \
-                --store \
-                --target "${FILES_META}"
+$metadata ${META_OPTIONS} \
+          --target "${FILES_META}" \
+          --store
 
 # Also update the newly created metadata file:
 git add --force "${FILES_META}"

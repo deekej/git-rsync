@@ -1,5 +1,8 @@
 # vim: filetype=bash
 
+# Type of files to be backed up / restored -- either 'system' or 'user':
+FILES_TYPE=system
+
 # System-wide $USERNAME is used for commiting changes.
 # If you wish to use different username, uncomment & change the line below:
 #USERNAME='deekej'

@@ -1,13 +1,13 @@
 #!/bin/bash
 
+# Source the default/user configuration:
+source .scripts/config
+
 # Backing up the system files requires elevated privileges:
-if [[ ${EUID} != 0 ]]; then
+if [[ ${FILES_TYPE} == system && ${EUID} != 0 ]]; then
   echo "$(basename "${0}"): ERROR: elevated privileges are required"
   exit 1
 fi
-
-# Source the default/user configuration:
-source .scripts/config
 
 # Make a cleanup before re-syncing the necessary files:
 rm -rf $(grep -E -v -e '^#.*$' -e '^[[:space:]]*$' -e '^.*\.git(/|\*).*$' "${FILES_CLEAN}")
